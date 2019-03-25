@@ -79,10 +79,17 @@ window.addEventListener('load', function() {
 
 }, false);
 
+//javascript object to hold data of the images
 function GalleryImage() {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
+	var location="India";
 	//2. description of photo
+	var description="Taj Mahal was a gift for the queen by the king of Agra";
 	//3. the date when the photo was taken
+	var date="08/07/2018";
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+	var imag={};
+
+
 }
