@@ -72,17 +72,11 @@ mJson = JSON.parse(mRequest.responseText);
 for (var i=0; i<mJson.images.length; i++){
 	//mImages.push(new GalleryImage(location,description,date, img));
 	mImages.push(new GalleryImage);          ////MIght have to change this to get it to work!!!!!!@#$#@#@#@#@#@##$#@
-
 	mJson.images[i]["location"]
 	mJson.images[i]["description"]
 	mJson.images[i]["date"]
 	mJson.images[i]["img"]
-
-
-
 }
-
-
 
 // Let’s print out the JSON; It will likely show as “obj”
 console.log(mJson);
@@ -107,13 +101,14 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 		mImages.push(galleryImage);
 	}
 }
-
 $(document).ready( function() {
 	
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
 	
 });
+
+
 
 window.addEventListener('load', function() {
 	
@@ -129,6 +124,5 @@ this.description = description;
 this.date = date;
 this.img = img;
 }; 
-
 
 
