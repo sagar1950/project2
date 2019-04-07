@@ -37,6 +37,7 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
+	$("#photo").attr("src", mImages[0].img);
 	console.log('swap photo');
 }
 
@@ -70,22 +71,21 @@ mJson = JSON.parse(mRequest.responseText);
 // LOOP THROUGH the mJSON array here and fill up the
 // mImages array with GalleryImage objects
 for (var i=0; i<mJson.images.length; i++){
-	//mImages.push(new GalleryImage(location,description,date, img));
-	mImages.push(new GalleryImage);          ////MIght have to change this to get it to work!!!!!!@#$#@#@#@#@#@##$#@
-	mJson.images[i]["location"]
-	mJson.images[i]["description"]
-	mJson.images[i]["date"]
-	mJson.images[i]["img"]
+	mImages.push(new GalleryImage(mJson.images[i]["location"],mJson.images[i]["description"],mJson.images[i]["date"],mJson.images[i]["img"]));	
+	
+	
 }
 
 // Let’s print out the JSON; It will likely show as “obj”
 console.log(mJson);
+
+
 } catch(err) {
 console.log(err.message)
 }
 }
 };
-mRequest.open("GET",mURL, true);
+mRequest.open("GET",'images-short.json', true);
 mRequest.send();
 
 /*
