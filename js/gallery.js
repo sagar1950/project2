@@ -105,6 +105,17 @@ $(document).ready( function() {
 	
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
+
+	//toggle to show or hide meta Data
+	$(".moreIndicator").click(function(){
+		$(".details").toggle();
+	});
+
+/* advance one photo
+	$("#nextPhoto").click(function(){
+
+	}
+*/
 	
 });
 
