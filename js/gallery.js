@@ -37,21 +37,58 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
+}
+
+function slideShow(){
 	$('.photoHolder #photo').attr("src", mImages[mCurrentIndex].img);
 	$('.location').text('Location: ' + mImages[mCurrentIndex].location);
     $('.description').text('Description: ' + mImages[mCurrentIndex].description);
     $('.date').text('Date: ' + mImages[mCurrentIndex].date); 
-
-	console.log('swap photo');
 }
-
-
-
-
+	console.log('swap photo');
 
 
 // Counter for the mImages array
 var mCurrentIndex = 0;
+//Clicking previous button/arrow image
+//will go back to previous image.
+
+var prev =false;
+function previousPic(){
+      $('#prevPhoto').click(function(){
+            prev=true;
+        if(mCurrentIndex === 0){
+            mCurrentIndex = mImages.length-1;
+            slideShow();
+            mLastFrameTime=0;
+
+        }else{
+            mCurrentIndex--;
+            slideShow();
+            mLastFrameTime=0;
+        }
+    });
+};
+
+//Advances images forward by one
+//Changes to next image after 5 sec.
+function nextPic(){
+        $('#nextPhoto').click(function(){
+                prev=false;
+        if(mCurrentIndex === mImages.length-1){
+            mCurrentIndex = 0;
+            slideShow();
+
+            mLastFrameTime=0;
+
+        }else{
+            mCurrentIndex++;
+            slideShow();
+            mLastFrameTime=0;
+        }
+    });
+};
+
 
 
 /*
@@ -76,8 +113,6 @@ if (mRequest.readyState == 4 && mRequest.status == 200) {
 try {
 // Let’s try and see if we can parse JSON (see next slide)
 mJson = JSON.parse(mRequest.responseText);
-
-
 
 // LOOP THROUGH the mJSON array here and fill up the
 // mImages array with GalleryImage objects
@@ -123,28 +158,21 @@ $(document).ready( function() {
 	//toggle to show or hide meta Data
 	$(".moreIndicator").click(function(){
 		$(".details").toggle();
-	});
-
-/* advance one photo
-	$("#nextPhoto").click(function(){
-
-	}
-*/
-	
 });
 
+//calling funtion to advance one photo
+	nextPic();
+//calling previous image function
+	previousPic();
+
+	});
 
 
 window.addEventListener('load', function() {
-	
 	console.log('window loaded');
-
 }, false);
 
 
-function getJSONFile(){
-
-}
 
 //javascript object to hold data of the images
 
