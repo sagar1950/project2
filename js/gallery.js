@@ -120,7 +120,7 @@ function getQueryParams(json) {
  }
  return params;
 }
-var $_GET = getQueryParams(document.location.search + '');
+var $_GET = getQueryParams(document.location.search);
 
 /*
 Start of XMLHttpRequest
