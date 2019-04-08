@@ -107,7 +107,20 @@ function nextPic(){
     });
 };
 
-
+//Alternate JSON input using GET
+	//copied from notes and changed qs to json.
+function getQueryParams(json) {
+    json = json.split("+").join(" ");
+    var params = {},
+    tokens,
+    re = /[?&]?([^=]+)=([^&]*)/g;
+    while (tokens = re.exec(json)) {
+        params[decodeURIComponent(tokens[1])]
+ = decodeURIComponent(tokens[2]);
+ }
+ return params;
+}
+var $_GET = getQueryParams(document.location.search + '');
 
 /*
 Start of XMLHttpRequest
@@ -191,9 +204,7 @@ window.addEventListener('load', function() {
 }, false);
 
 
-
 //javascript object to hold data of the images
-
 function GalleryImage(img,location, description, date) {
 this.img = img;
 this.location = location;
