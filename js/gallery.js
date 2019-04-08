@@ -37,8 +37,27 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
-}
+	//Automatically changes slideshow every 5sec. 
+	//uses the predefined function above.
+    if(prev){
+        if(mCurrentIndex > 0) {
+            mCurrentIndex--;
+        } else { 
+            mCurrentIndex = mImages.length-1;
+        };
+    }else {
+        if(mCurrentIndex < mImages.length-1) {
+            mCurrentIndex++;
+        } else { 
+        mCurrentIndex = 0;
+    };
+    };
 
+        slideShow();       
+};
+
+//gahthers all the images and their info. to be
+//placed on the slideshow
 function slideShow(){
 	$('.photoHolder #photo').attr("src", mImages[mCurrentIndex].img);
 	$('.location').text('Location: ' + mImages[mCurrentIndex].location);
@@ -52,7 +71,6 @@ function slideShow(){
 var mCurrentIndex = 0;
 //Clicking previous button/arrow image
 //will go back to previous image.
-
 var prev =false;
 function previousPic(){
       $('#prevPhoto').click(function(){

@@ -30,7 +30,7 @@ body {
 	position: absolute;
 	z-index: 3;
 	opacity: .8;
-	top: 330px;
+	top: 250px;
 	left:290px;
 	
 }
@@ -81,6 +81,13 @@ body {
 	padding: 0px 10px;
 	margin: 20px 0px;
 }
+
+img{
+	width:100%;
+	height: auto%;
+}
+
+
 
 /*Add CSS styles to rotate the element 90deg
 Make it animate nicely. You'll need CSS3 for this*/
